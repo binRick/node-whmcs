@@ -123,6 +123,22 @@ Customers.prototype.updateService = function(serviceid, data, callback) {
   utils.modem(updateOptions, callback);
 };
 
+Customers.prototype.moduleCustom = function(serviceid, data, callback) {
+  var options = {
+    action: 'ModuleCustom',
+    accountid: serviceid
+  };
+
+  options = extend(options, data);
+
+  var moduleOptions = {
+    client: this,
+    body: options
+  };
+
+  utils.modem(moduleOptions, callback);
+};
+
 /**
  * Delete contact - http://docs.whmcs.com/API:Delete_Contact
  * @param contactid String
